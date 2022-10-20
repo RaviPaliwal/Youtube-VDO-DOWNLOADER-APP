@@ -53,12 +53,16 @@ def Download():
         resolutions1 = yt_video.streams.filter(file_extension='mp4')
         resolutions = resolutions1.order_by('resolution')
         res_list1 = []
+        
         for stream in resolutions:
             res_list1.append(stream.resolution)
+        
         res_list = list(enumerate(res_list1))
         showMsg(res_list)
+        
         Label(root, text='Select Resolution', bg='#947d43',
               font=("Arial", 18)).place(y='200', x='130')
+        
         index_Tf = Entry(root, font=15)
         index_Tf.bind('<Return>', start)
         index_Tf.place(x='50', y='250', height=40, width="360")
@@ -72,6 +76,14 @@ lbl = Label(root, text='Enter Link',
 
 linkget = Entry(root, font=(12), bg="#e5e4e6", foreground="#160042")
 linkget.place(x='50', y='120', height=45, width='360')
+
+logo= Frame(root)
+l1 = Label(logo,image=img,bg="#947d43")
+l1.pack(anchor="center")
+logo.pack(side= "bottom",pady=20)
+
+
+
 try:
     try:
         btn = Button(root, text='Download', pady='10', padx='20', font=(
